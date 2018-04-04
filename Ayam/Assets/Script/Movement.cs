@@ -65,6 +65,15 @@ public class Movement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow) && p2.GetComponent<Rigidbody>().velocity.x > -2f)
             {
                 p2.GetComponent<Rigidbody>().velocity += new Vector3(-0.5f, 0, 0);
+                Vector3 temp = p2.transform.eulerAngles;
+                temp.y -= 45f * Time.deltaTime;
+                p2.transform.eulerAngles = temp;
+            }
+            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y > 180f)
+            {
+                Vector3 temp = p2.transform.eulerAngles;
+                temp.y += 45f * Time.deltaTime;
+                p2.transform.eulerAngles = temp;
             }
             if (Input.GetKey(KeyCode.DownArrow) && p2.GetComponent<Rigidbody>().velocity.z > -1f)//2nd constraint for min speed
             {
@@ -73,6 +82,15 @@ public class Movement : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow) && p2.GetComponent<Rigidbody>().velocity.x < 2f)
             {
                 p2.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
+                Vector3 temp = p2.transform.eulerAngles;
+                temp.y += 45f * Time.deltaTime;
+                p2.transform.eulerAngles = temp;
+            }
+            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y < 180f)
+            {
+                Vector3 temp = p2.transform.eulerAngles;
+                temp.y -= 45f * Time.deltaTime;
+                p2.transform.eulerAngles = temp;
             }
         }
     }
