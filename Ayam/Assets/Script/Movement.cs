@@ -21,40 +21,43 @@ public class Movement : MonoBehaviour
     {
         if (p1_Win == false)
         {
-            if (Input.GetKey(KeyCode.W) && p1.GetComponent<Rigidbody>().velocity.z < 5f)
+            if (Input.GetKey(KeyCode.W) && p1.GetComponent<Rigidbody>().velocity.z < 500f)
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 0.5f);
+				float speed = 50f; //change?
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 0.5f);
+				p1.GetComponent<Rigidbody>().AddForce(p1.transform.forward*Time.deltaTime*speed);
             }
 			if (Input.GetKey (KeyCode.A) && p1.GetComponent<Rigidbody>().velocity.x > -2f) 
 			{
-				p1.GetComponent<Rigidbody> ().velocity += new Vector3 (-0.5f, 0, 0);
+				//p1.GetComponent<Rigidbody> ().velocity += new Vector3 (-0.5f, 0, 0);
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y -= 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
 			} 
-			else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>180f)
+			/*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>180f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y += 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
-			}
+			}*/
             if (Input.GetKey(KeyCode.S) && p1.GetComponent<Rigidbody>().velocity.z > -1f)
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, -0.5f);
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, -0.5f);
+				p1.GetComponent<Rigidbody>().velocity *= 0.9f;
 			}
             if (Input.GetKey(KeyCode.D) && p1.GetComponent<Rigidbody>().velocity.x < 2f)
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y += 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
             }
-			else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<180f)
+			/*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<180f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y -= 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
-			}
+			}*/
         }
         if (p2_Win == false)
         {
