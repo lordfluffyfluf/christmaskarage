@@ -10,10 +10,16 @@ public class Movement : MonoBehaviour
     bool p1_Win = false;
     bool p2_Win = false;
 
+	private Rigidbody rig1;
+	private Rigidbody rig2;
+	private float p1nitro;
+
     // Use this for initialization
     void Start()
     {
-
+		p1nitro = 100f;
+		rig1 = p1.GetComponent<Rigidbody> ();
+		rig2 = p2.GetComponent<Rigidbody> ();
     }
 
     // Update is called once per frame
@@ -21,77 +27,85 @@ public class Movement : MonoBehaviour
     {
         if (p1_Win == false)
         {
-            if (Input.GetKey(KeyCode.W) && p1.GetComponent<Rigidbody>().velocity.z < 5f)
+			if (Input.GetKey(KeyCode.W) && rig1.velocity.z < 500f)
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 0.5f);
+				float speed = 50f; //change?
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 0.5f);
+				rig1.AddForce(p1.transform.forward*Time.deltaTime*speed);
             }
-			if (Input.GetKey (KeyCode.A) && p1.GetComponent<Rigidbody>().velocity.x > -2f) 
+			if (Input.GetKey (KeyCode.A)) 
 			{
-				p1.GetComponent<Rigidbody> ().velocity += new Vector3 (-0.5f, 0, 0);
+				//p1.GetComponent<Rigidbody> ().velocity += new Vector3 (-0.5f, 0, 0);
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y -= 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
 			} 
-			else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>180f)
+			/*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>180f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y += 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
-			}
-            if (Input.GetKey(KeyCode.S) && p1.GetComponent<Rigidbody>().velocity.z > -1f)
+			}*/
+			if (Input.GetKey(KeyCode.S) && rig1.velocity.z > -1f)
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, -0.5f);
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, -0.5f);
+				rig1.velocity *= 0.9f;
 			}
-            if (Input.GetKey(KeyCode.D) && p1.GetComponent<Rigidbody>().velocity.x < 2f)
+            if (Input.GetKey(KeyCode.D))
             {
-                p1.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
+                //p1.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y += 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
             }
-			else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<180f)
+			/*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<180f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y -= 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
+			}*/
+			if (Input.GetKey (KeyCode.Space) && p1nitro > 0) {
+				rig1.AddForce (p1.transform.forward * Time.deltaTime * 100f);
+				p1nitro-=2f;
+				Debug.Log (p1nitro);
 			}
         }
         if (p2_Win == false)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && p2.GetComponent<Rigidbody>().velocity.z < 5f) //2nd constraint for max speed
+			if (Input.GetKey(KeyCode.UpArrow) && rig2.velocity.z < 5f) //2nd constraint for max speed
             {
-                p2.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, 0.5f);
+				rig2.velocity += new Vector3(0, 0, 0.5f);
             }
-            if (Input.GetKey(KeyCode.LeftArrow) && p2.GetComponent<Rigidbody>().velocity.x > -2f)
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                p2.GetComponent<Rigidbody>().velocity += new Vector3(-0.5f, 0, 0);
+                //p2.GetComponent<Rigidbody>().velocity += new Vector3(-0.5f, 0, 0);
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y -= 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
             }
-            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y > 180f)
+            /*else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y > 180f)
             {
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y += 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
-            }
-            if (Input.GetKey(KeyCode.DownArrow) && p2.GetComponent<Rigidbody>().velocity.z > -1f)//2nd constraint for min speed
+            }*/
+			if (Input.GetKey(KeyCode.DownArrow) && rig2.velocity.z > -1f)//2nd constraint for min speed
             {
-                p2.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, -0.5f);
+				rig2.velocity += new Vector3(0, 0, -0.5f);
             }
-            if (Input.GetKey(KeyCode.RightArrow) && p2.GetComponent<Rigidbody>().velocity.x < 2f)
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                p2.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
+                //p2.GetComponent<Rigidbody>().velocity += new Vector3(0.5f, 0, 0);
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y += 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
             }
-            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y < 180f)
+            /*else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y < 180f)
             {
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y -= 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
-            }
+            }*/
         }
     }
 }
