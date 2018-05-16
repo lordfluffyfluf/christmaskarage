@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject p1;
     public GameObject p2;
 
+	public Slider boost1;
+	public Slider boost2;
+
     //bool p1_Win = false;
     //bool p2_Win = false;
 
 	private Rigidbody rig1;
 	private Rigidbody rig2;
-	private float p1nitro;
+	public float p1nitro;
 	private float p2nitro;
 
     #region Finish detection variable
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		p1nitro = p2nitro = 100f;
+		boost1.value = p1nitro;
+		boost2.value = p2nitro;
 		rig1 = p1.GetComponent<Rigidbody> ();
 		rig2 = p2.GetComponent<Rigidbody> ();
         origin = new Vector3(Finish.GetComponent<Rigidbody>().position.x, Finish.GetComponent<Rigidbody>().position.y, Finish.GetComponent<Rigidbody>().position.z); //raycast
@@ -80,8 +86,13 @@ public class GameManager : MonoBehaviour
 			if (Input.GetKey(KeyCode.LeftShift) && p1nitro > 0)
             {
                 rig1.AddForce(p1.transform.forward * Time.deltaTime * 100f);
-                p1nitro -= 2f;
+                p1nitro -= 1.5f;
+				boost1.value = p1nitro;
             }
+			if (p1nitro < 100f) {
+				p1nitro += 0.5f;
+				boost1.value = p1nitro;
+			}
         //}
     }
 
@@ -125,7 +136,12 @@ public class GameManager : MonoBehaviour
 			if (Input.GetKey(KeyCode.RightControl) && p2nitro > 0)
 			{
 				rig2.AddForce(p2.transform.forward * Time.deltaTime * 100f);
-				p2nitro -= 2f;
+				p2nitro -= 1.5f;
+				boost2.value = p2nitro;
+			}
+			if (p2nitro < 100f) {
+				p2nitro += 0.5f;
+				boost2.value = p2nitro;
 			}
         //}
     }
