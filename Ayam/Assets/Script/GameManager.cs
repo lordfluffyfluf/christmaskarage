@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
 
 	public Slider boost1;
 	public Slider boost2;
-
-    //bool p1_Win = false;
-    //bool p2_Win = false;
+	public Text count1;
+	public Text count2;
 
 	private Rigidbody rig1;
 	private Rigidbody rig2;
 	public float p1nitro;
 	private float p2nitro;
+	private bool isStart=false;
 
     #region Finish detection variable
     public GameObject Finish;
@@ -36,14 +36,17 @@ public class GameManager : MonoBehaviour
 		rig2 = p2.GetComponent<Rigidbody> ();
         origin = new Vector3(Finish.GetComponent<Rigidbody>().position.x, Finish.GetComponent<Rigidbody>().position.y, Finish.GetComponent<Rigidbody>().position.z); //raycast
         maxDistance = new Vector3(12, 0, 0);
+		StartCoroutine (countdown());
     }
 
     // Update is called once per frame
     void Update()
     {
-        finishLine();
-        Movementp1();
-        Movementp2();
+		if (isStart) {
+			finishLine();
+			Movementp1();
+			Movementp2();
+		}
     }
 
     void Movementp1()
@@ -157,4 +160,23 @@ public class GameManager : MonoBehaviour
             Debug.Log("lala");
         }
     }
+
+	private IEnumerator countdown(){
+		float cdown = 3f;
+		float tine = 1.25f;
+		while (cdown>0) {
+			
+			count1.text = cdown.ToString ();
+			count2.text = cdown.ToString ();
+			cdown--;
+			yield return new WaitForSeconds (tine);
+		}
+		isStart = true;
+		count1.text = "GO!!!";
+		count2.text = "GO!!!";
+		yield return new WaitForSeconds (1.5f);
+		count1.text = "";
+		count2.text = "";
+	}
+
 }
