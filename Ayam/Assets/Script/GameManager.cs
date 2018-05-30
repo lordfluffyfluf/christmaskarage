@@ -151,14 +151,13 @@ public class GameManager : MonoBehaviour
 
     void finishLine()
     {
-        Vector3 Direction = transform.TransformDirection(Vector3.left) * 1000;
-        Debug.DrawRay(origin, Direction, Color.green);
-        RaycastHit hit;
-        Ray ray = new Ray(origin, Direction);
-
-        if (Physics.Raycast(ray, out hit, 100f, 1 << 8))
+        Vector3 forward = transform.TransformDirection(Vector3.left) * 1000;
+        Debug.DrawRay(Finish.GetComponent<Rigidbody>().position, forward, Color.green);
+        
+        Vector3 origin = new Vector3(Finish.GetComponent<Rigidbody>().position.x, Finish.GetComponent<Rigidbody>().position.y, Finish.GetComponent<Rigidbody>().position.z);
+        if(Physics.Raycast(origin,maxDistance,out hit))
         {
-            Debug.Log("hit");
+            Debug.Log("lala");
         }
     }
 
