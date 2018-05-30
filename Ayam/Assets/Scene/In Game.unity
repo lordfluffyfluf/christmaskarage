@@ -611,7 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 321059702}
   - component: {fileID: 321059700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_sled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335073932}
   - component: {fileID: 335073931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_sled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 470624844}
   - component: {fileID: 470624843}
   - component: {fileID: 470624842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: redsled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 548178088}
   - component: {fileID: 548178087}
   - component: {fileID: 548178086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 638868635}
   - component: {fileID: 638868634}
   - component: {fileID: 638868633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5042,7 +5042,7 @@ GameObject:
   - component: {fileID: 1296566953}
   - component: {fileID: 1296566955}
   - component: {fileID: 1296566954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rocket_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5546,7 +5546,7 @@ GameObject:
   - component: {fileID: 1489334224}
   - component: {fileID: 1489334223}
   - component: {fileID: 1489334222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bluesled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 1608098628}
   - component: {fileID: 1608098630}
   - component: {fileID: 1608098629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rocketboom_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9654,7 +9654,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1717607893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalPosition: {x: 12, y: 0, z: -3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1838969232}
@@ -9713,6 +9713,14 @@ Prefab:
     - target: {fileID: 4249340866068800, guid: cf4fb86ca31bab04f90e372c1bb36c31, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408698813802930, guid: cf4fb86ca31bab04f90e372c1bb36c31, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937154551109082, guid: cf4fb86ca31bab04f90e372c1bb36c31, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4fb86ca31bab04f90e372c1bb36c31, type: 2}
@@ -9849,7 +9857,7 @@ GameObject:
   - component: {fileID: 1780948660}
   - component: {fileID: 1780948659}
   - component: {fileID: 1780948658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10135,7 +10143,7 @@ GameObject:
   - component: {fileID: 1875219319}
   - component: {fileID: 1875219318}
   - component: {fileID: 1875219317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}

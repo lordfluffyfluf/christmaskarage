@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 		if (isStart) {
+			rig1.constraints = RigidbodyConstraints.None;
+			rig2.constraints = RigidbodyConstraints.None;
+			rig1.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+			rig2.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			finishLine();
 			Movementp1();
 			Movementp2();
@@ -165,6 +169,8 @@ public class GameManager : MonoBehaviour
 	private IEnumerator countdown(){
 		float cdown = 3f;
 		float tine = 1.25f;
+		rig1.constraints = RigidbodyConstraints.FreezeAll;
+		rig2.constraints = RigidbodyConstraints.FreezeAll;
 		while (cdown>0) {
 			
 			count1.text = cdown.ToString ();
