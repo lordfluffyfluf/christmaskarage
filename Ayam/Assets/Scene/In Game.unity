@@ -4942,7 +4942,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064773426}
   m_Mesh: {fileID: 4300014, guid: 5a0394f07dd579542b00fe93771d389d, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1082812524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,8 +5084,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1138616564}
-=======
->>>>>>> db8346b358e182b5cdf260adb19bf4e4aa524d8d
 --- !u!1001 &1152771096
 Prefab:
   m_ObjectHideFlags: 0
@@ -5841,11 +5838,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-<<<<<<< HEAD
   m_MatchWidthOrHeight: 0.5
-=======
-  m_MatchWidthOrHeight: 1
->>>>>>> db8346b358e182b5cdf260adb19bf4e4aa524d8d
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -10032,7 +10025,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780948656}
   m_Mesh: {fileID: 4300004, guid: 5a0394f07dd579542b00fe93771d389d, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1831663533
 GameObject:
   m_ObjectHideFlags: 0
@@ -10128,8 +10120,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-=======
->>>>>>> db8346b358e182b5cdf260adb19bf4e4aa524d8d
 --- !u!4 &1838969232 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3f5e9add68a59ed46824cedc3220b695, type: 3}
