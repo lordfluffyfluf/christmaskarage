@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
 	public Text count1;
 	public Text count2;
 
+	public GroundCheck gc1;
+	public GroundCheck gc2;
+
 	private Rigidbody rig1;
 	private Rigidbody rig2;
-	public float p1nitro;
+	private float p1nitro;
 	private float p2nitro;
 	private bool isStart=false;
 
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         //if (p1_Win == false)
         //{
-            if (Input.GetKey(KeyCode.W) && rig1.velocity.z < 500f)
+		if (Input.GetKey(KeyCode.W) && rig1.velocity.z < 500f && gc1.gc)
             {
                 float speed = 50f;
                 rig1.AddForce(p1.transform.forward * Time.deltaTime * speed);
@@ -68,13 +71,13 @@ public class GameManager : MonoBehaviour
                 temp.y -= 45f * Time.deltaTime;
                 p1.transform.eulerAngles = temp;
             }
-            else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>335f)
+            /*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y>335f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y += 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
-			}
-            if (Input.GetKey(KeyCode.S) && rig1.velocity.z > -1f)
+			}*/
+		if (Input.GetKey(KeyCode.S) && rig1.velocity.z > -1f && gc1.gc)
             {
                 rig1.velocity *= 0.9f;
             }
@@ -84,12 +87,12 @@ public class GameManager : MonoBehaviour
                 temp.y += 45f * Time.deltaTime;
                 p1.transform.eulerAngles = temp;
             }
-            else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<25f)
+            /*else if(p1.transform.eulerAngles.y != 0f && p1.transform.eulerAngles.y<25f)
 			{
 				Vector3 temp = p1.transform.eulerAngles;
 				temp.y -= 45f * Time.deltaTime;
 				p1.transform.eulerAngles = temp;
-			}
+			}*/
 			if (Input.GetKey(KeyCode.LeftShift) && p1nitro > 0)
             {
                 rig1.AddForce(p1.transform.forward * Time.deltaTime * 100f);
@@ -107,10 +110,17 @@ public class GameManager : MonoBehaviour
     {
         //if (p2_Win == false)
         //{
-            if (Input.GetKey(KeyCode.UpArrow) && rig2.velocity.z < 500f) //2nd constraint for max speed
+		if (Input.GetKey(KeyCode.UpArrow) && rig2.velocity.z < 500f) //2nd constraint for max speed
             {
-                float speed = 50f;
-                rig2.AddForce(p2.transform.forward * Time.deltaTime * speed);
+				if (gc2.gc) {
+					float speed = 50f;
+					rig2.AddForce (p2.transform.forward * Time.deltaTime * speed);
+				} else {
+					Vector3 temp = p2.transform.eulerAngles;
+					temp.x += 45f * Time.deltaTime;
+					p2.transform.eulerAngles = temp;
+				Debug.Log ("anjing");
+				}
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
@@ -118,15 +128,22 @@ public class GameManager : MonoBehaviour
                 temp.y -= 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
             }
-            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y > 335f)
+            /*else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y > 335f)
             {
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y += 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
-            }
-            if (Input.GetKey(KeyCode.DownArrow) && rig2.velocity.z > -1f)//2nd constraint for min speed
+            }*/
+		if (Input.GetKey(KeyCode.DownArrow) && rig2.velocity.z > -1f)//2nd constraint for min speed
             {
-                rig2.velocity *= 0.9f;
+			if (gc2.gc) {
+				rig2.velocity *= 0.9f;
+			} else {
+				Vector3 temp = p2.transform.eulerAngles;
+				temp.x -= 45f * Time.deltaTime;
+				p2.transform.eulerAngles = temp;
+				Debug.Log ("kucing");
+			}
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
@@ -134,12 +151,12 @@ public class GameManager : MonoBehaviour
                 temp.y += 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
             }
-            else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y < 25f)
+            /*else if (p2.transform.eulerAngles.y != 0f && p2.transform.eulerAngles.y < 25f)
             {
                 Vector3 temp = p2.transform.eulerAngles;
                 temp.y -= 45f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
-            }
+            }*/
 			if (Input.GetKey(KeyCode.RightControl) && p2nitro > 0)
 			{
 				rig2.AddForce(p2.transform.forward * Time.deltaTime * 100f);
