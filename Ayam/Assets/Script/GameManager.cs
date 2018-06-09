@@ -22,13 +22,6 @@ public class GameManager : MonoBehaviour
 	private float p2nitro;
 	private bool isStart=false;
 
-    #region Finish detection variable
-    public GameObject Finish;
-    private Vector3 origin;
-    private Vector3 maxDistance;
-    private RaycastHit hit;
-    #endregion
-
     // Use this for initialization
     void Start()
     {
@@ -37,8 +30,6 @@ public class GameManager : MonoBehaviour
 		boost2.value = p2nitro;
 		rig1 = p1.GetComponent<Rigidbody> ();
 		rig2 = p2.GetComponent<Rigidbody> ();
-        origin = new Vector3(Finish.GetComponent<Rigidbody>().position.x, Finish.GetComponent<Rigidbody>().position.y, Finish.GetComponent<Rigidbody>().position.z); //raycast
-        maxDistance = new Vector3(12, 0, 0);
 		StartCoroutine (countdown());
     }
 
@@ -50,7 +41,6 @@ public class GameManager : MonoBehaviour
 			rig2.constraints = RigidbodyConstraints.None;
 			rig1.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			rig2.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-			finishLine();
 			Movementp1();
 			Movementp2();
 		}
@@ -168,19 +158,6 @@ public class GameManager : MonoBehaviour
 				boost2.value = p2nitro;
 			}
         //}
-    }
-
-    void finishLine()
-    {
-        Vector3 Direction = transform.TransformDirection(Vector3.left) * 1000;
-        Debug.DrawRay(origin, Direction, Color.green);
-        RaycastHit hit;
-        Ray ray = new Ray(origin, Direction);
-
-        if (Physics.Raycast(ray, out hit, 100f, 1 << 8))
-        {
-            Debug.Log("hit");
-        }
     }
 
 	private IEnumerator countdown(){
