@@ -1,104 +1,27 @@
 fileFormatVersion: 2
-guid: 5a0394f07dd579542b00fe93771d389d
-timeCreated: 1521354656
+guid: 2ef0d1edf235d094d8e625bcfd442602
+timeCreated: 1528716069
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: blue_chicken
-    100002: bluesled
-    100004: ice
-    100006: Plane
-    100008: red_chicken
-    100010: redsled
-    100012: rocket
-    100014: rocket_001
-    100016: //RootNode
-    100018: tree
-    100020: tree_001
-    100022: tree_002
-    100024: tree_003
-    100026: tree_004
-    100028: tree_005
-    100030: tree_006
-    100032: tree_007
-    100034: Armature
-    100036: Bone
-    100038: Bone_001
-    100040: Bone_002
-    400000: blue_chicken
-    400002: bluesled
-    400004: ice
-    400006: Plane
-    400008: red_chicken
-    400010: redsled
-    400012: rocket
-    400014: rocket_001
-    400016: //RootNode
-    400018: tree
-    400020: tree_001
-    400022: tree_002
-    400024: tree_003
-    400026: tree_004
-    400028: tree_005
-    400030: tree_006
-    400032: tree_007
-    400034: Armature
-    400036: Bone
-    400038: Bone_001
-    400040: Bone_002
-    2300000: blue_chicken
-    2300002: bluesled
-    2300004: ice
-    2300006: Plane
-    2300008: red_chicken
-    2300010: redsled
-    2300012: rocket
-    2300014: rocket_001
-    2300016: tree
-    2300018: tree_001
-    2300020: tree_002
-    2300022: tree_003
-    2300024: tree_004
-    2300026: tree_005
-    2300028: tree_006
-    2300030: tree_007
-    3300000: blue_chicken
-    3300002: bluesled
-    3300004: ice
-    3300006: Plane
-    3300008: red_chicken
-    3300010: redsled
-    3300012: rocket
-    3300014: rocket_001
-    3300016: tree
-    3300018: tree_001
-    3300020: tree_002
-    3300022: tree_003
-    3300024: tree_004
-    3300026: tree_005
-    3300028: tree_006
-    3300030: tree_007
-    4300000: rocket_001
-    4300002: rocket
-    4300004: blue_chicken
-    4300006: ice
-    4300008: redsled
-    4300010: tree_007
-    4300012: tree_006
-    4300014: tree_005
-    4300016: tree_004
-    4300018: tree_003
-    4300020: tree_002
-    4300022: tree_001
-    4300024: tree
-    4300026: Plane
-    4300028: bluesled
-    4300030: red_chicken
+    100000: Armature
+    100002: //RootNode
+    100004: blue_chicken
+    100006: Bone
+    100008: Bone_001
+    100010: Bone_002
+    400000: Armature
+    400002: //RootNode
+    400004: blue_chicken
+    400006: Bone
+    400008: Bone_001
+    400010: Bone_002
+    4300000: blue_chicken
     7400000: Default Take
     7400002: idle
     9500000: //RootNode
-    13700000: red_chicken
+    13700000: blue_chicken
   materials:
     importMaterials: 1
     materialName: 0
@@ -159,7 +82,7 @@ ModelImporter:
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 24
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
