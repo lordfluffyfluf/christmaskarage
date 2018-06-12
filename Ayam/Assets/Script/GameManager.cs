@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
+    {    
         p1nitro = p2nitro = 100f;
         boost1.value = p1nitro;
         boost2.value = p2nitro;
