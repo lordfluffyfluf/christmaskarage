@@ -19,8 +19,7 @@ public class PowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.boost1.value == 0f) GameManager.boost1.gameObject.SetActive(false);
-        if (GameManager.boost2.value == 0f) GameManager.boost2.gameObject.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider col)

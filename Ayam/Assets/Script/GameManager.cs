@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
             rig2.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             if(p1Move) Movementp1();
             if(p2Move) Movementp2();
+            if (boost1.value == 0f) boost1.gameObject.SetActive(false);
+            if (boost2.value == 0f) boost2.gameObject.SetActive(false);
+            boost1.gameObject.SetActive(true);
         }
     }
 
