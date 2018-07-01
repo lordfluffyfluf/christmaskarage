@@ -7,18 +7,6 @@ public class FinishChecker : MonoBehaviour
 
     public GameManager GameManager;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player" && col.name == "redsled")
@@ -27,9 +15,10 @@ public class FinishChecker : MonoBehaviour
             if (!GameManager.isWin)
             {
                 GameManager.isWin = true;
-                GameManager.count1.text = "You Win!!!";
+                GameManager.count1.texture = GameManager.win;
+                //GameManager.count1.text = "You Win!!!";
             }
-            else GameManager.count1.text = "You Lose!!!";
+            else GameManager.count1.texture = GameManager.lose; //GameManager.count1.text = "You Lose!!!";
         }
         else if (col.tag == "Player" && col.name == "bluesled")
         {
@@ -37,9 +26,10 @@ public class FinishChecker : MonoBehaviour
             if (!GameManager.isWin)
             {
                 GameManager.isWin = true;
-                GameManager.count2.text = "You Win!!!";
+                GameManager.count2.texture = GameManager.win;
+                //   GameManager.count2.text = "You Win!!!";
             }
-            else GameManager.count2.text = "You Lose!!!";
+            else GameManager.count2.texture = GameManager.lose; //GameManager.count2.text = "You Lose!!!";
         }
     }
 }

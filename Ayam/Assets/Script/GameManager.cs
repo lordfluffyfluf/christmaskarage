@@ -5,24 +5,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject p1;
-    public GameObject p2;
+    public GameObject p1, p2;
 
-    public Slider boost1;
-    public Slider boost2;
-    public Text count1;
-    public Text count2;
+    public Slider boost1, boost2;
+    public RawImage count1, count2;
+    public Texture texture1, texture2, texture3, texture4, win, lose;
 
-    public GroundCheck gc1;
-    public GroundCheck gc2;
+    public GroundCheck gc1, gc2;
 
     public bool isWin = false;
     public bool p1Move = true;
     public bool p2Move = true;
-    private Rigidbody rig1;
-    private Rigidbody rig2;
-    private float p1nitro;
-    private float p2nitro;
+    private Rigidbody rig1, rig2;
+    private float p1nitro, p2nitro;
     private bool isStart = false;
 
     // Use this for initialization
@@ -93,11 +88,11 @@ public class GameManager : MonoBehaviour
             p1nitro -= 1.5f;
             boost1.value = p1nitro;
         }
-        if (p1nitro < 100f)
-        {
-            p1nitro += 0.5f;
-            boost1.value = p1nitro;
-        }
+        //if (p1nitro < 100f)
+        //{
+        //    p1nitro += 0.5f;
+        //    boost1.value = p1nitro;
+        //}
         //}
     }
 
@@ -164,13 +159,15 @@ public class GameManager : MonoBehaviour
             p2nitro -= 1.5f;
             boost2.value = p2nitro;
         }
-        if (p2nitro < 100f)
-        {
-            p2nitro += 0.5f;
-            boost2.value = p2nitro;
-        }
+        //if (p2nitro < 100f)
+        //{
+        //    p2nitro += 0.5f;
+        //    boost2.value = p2nitro;
         //}
+        
     }
+
+
 
     private IEnumerator countdown()
     {
@@ -180,18 +177,32 @@ public class GameManager : MonoBehaviour
         rig2.constraints = RigidbodyConstraints.FreezeAll;
         while (cdown > 0)
         {
-
-            count1.text = cdown.ToString();
-            count2.text = cdown.ToString();
+            if(cdown == 3)
+            {
+                count1.texture = texture1;
+                count2.texture = texture1;
+            }
+            else if (cdown == 2)
+            {
+                count1.texture = texture2;
+                count2.texture = texture2;
+            }
+            else if(cdown == 1)
+            {
+                count1.texture = texture3;
+                count2.texture = texture3;
+            }
             cdown--;
             yield return new WaitForSeconds(tine);
         }
         isStart = true;
-        count1.text = "GO!!!";
-        count2.text = "GO!!!";
+        count1.texture = texture4;
+        count2.texture = texture4;
         yield return new WaitForSeconds(1.5f);
-        count1.text = "";
-        count2.text = "";
+        count1.texture = null;
+        count1.color = Color.clear;
+        count2.texture = null;
+        count2.color = Color.clear;
     }
 
 }
