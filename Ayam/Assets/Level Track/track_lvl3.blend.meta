@@ -53,6 +53,11 @@ ModelImporter:
     100090: Cube_044
     100092: Cube_045
     100094: Cube_046
+    100096: Cube_046_MeshPart0
+    100098: Cube_046_MeshPart1
+    100100: Cube_046_MeshPart2
+    100102: Cube_046_MeshPart3
+    100104: Plane
     400000: Cube_000
     400002: Cube_001
     400004: Cube_002
@@ -101,6 +106,11 @@ ModelImporter:
     400090: Cube_044
     400092: Cube_045
     400094: Cube_046
+    400096: Cube_046_MeshPart0
+    400098: Cube_046_MeshPart1
+    400100: Cube_046_MeshPart2
+    400102: Cube_046_MeshPart3
+    400104: Plane
     2300000: Cube_000
     2300002: Cube_001
     2300004: Cube_002
@@ -148,6 +158,11 @@ ModelImporter:
     2300088: Cube_044
     2300090: Cube_045
     2300092: Cube_046
+    2300094: Cube_046_MeshPart0
+    2300096: Cube_046_MeshPart1
+    2300098: Cube_046_MeshPart2
+    2300100: Cube_046_MeshPart3
+    2300102: Plane
     3300000: Cube_000
     3300002: Cube_001
     3300004: Cube_002
@@ -195,6 +210,11 @@ ModelImporter:
     3300088: Cube_044
     3300090: Cube_045
     3300092: Cube_046
+    3300094: Cube_046_MeshPart0
+    3300096: Cube_046_MeshPart1
+    3300098: Cube_046_MeshPart2
+    3300100: Cube_046_MeshPart3
+    3300102: Plane
     4300000: Cube_005
     4300002: Cube_003
     4300004: Cube_002
@@ -242,6 +262,11 @@ ModelImporter:
     4300088: Cube_007
     4300090: Cube_006
     4300092: Cube_015
+    4300094: Plane
+    4300096: Cube_046_MeshPart0
+    4300098: Cube_046_MeshPart1
+    4300100: Cube_046_MeshPart2
+    4300102: Cube_046_MeshPart3
     7400000: Default Take
     9500000: //RootNode
   materials:

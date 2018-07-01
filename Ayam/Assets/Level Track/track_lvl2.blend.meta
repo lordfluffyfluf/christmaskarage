@@ -8,15 +8,22 @@ ModelImporter:
     100000: Cube_012_MeshPart0
     100002: Cube_012_MeshPart1
     100004: //RootNode
+    100006: Cube_012
+    100008: Plane
     400000: Cube_012_MeshPart0
     400002: Cube_012_MeshPart1
     400004: //RootNode
+    400006: Cube_012
+    400008: Plane
     2300000: Cube_012_MeshPart0
     2300002: Cube_012_MeshPart1
+    2300004: Plane
     3300000: Cube_012_MeshPart0
     3300002: Cube_012_MeshPart1
+    3300004: Plane
     4300000: Cube_012_MeshPart0
     4300002: Cube_012_MeshPart1
+    4300004: Plane
     7400000: Default Take
     9500000: //RootNode
   materials:
