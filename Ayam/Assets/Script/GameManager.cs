@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject p1, p2;
     public PowerUp PowerUp;
+	public Pause pause;
 
     public Slider boost1, boost2;
     public RawImage count1, count2;
@@ -54,10 +55,16 @@ public class GameManager : MonoBehaviour
     {
         //if (p1_Win == false)
         //{
-        if (Input.GetKey(KeyCode.W) && rig1.velocity.z < 500f && gc1.gc)
+        if (Input.GetKey(KeyCode.W) && rig1.velocity.z < 500f)
         {
-            float speed = 50f;
-            rig1.AddForce(p1.transform.forward * Time.deltaTime * speed);
+			if (gc1.gc) {
+				float speed = 50f;
+				rig1.AddForce (p1.transform.forward * Time.deltaTime * speed);
+			} else {
+				Vector3 temp = p1.transform.eulerAngles;
+				temp.x += 90f * Time.deltaTime;
+				p1.transform.eulerAngles = temp;
+			}
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -71,9 +78,15 @@ public class GameManager : MonoBehaviour
             temp.y += 45f * Time.deltaTime;
             p1.transform.eulerAngles = temp;
         }*/
-        if (Input.GetKey(KeyCode.S) && rig1.velocity.z > -1f && gc1.gc)
+        if (Input.GetKey(KeyCode.S) && rig1.velocity.z > -1f)
         {
-            rig1.velocity *= 0.9f;
+			if (gc1.gc) {
+				rig1.velocity *= 0.75f;
+			} else {
+				Vector3 temp = p1.transform.eulerAngles;
+				temp.x -= 90f * Time.deltaTime;
+				p1.transform.eulerAngles = temp;
+			}
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -95,8 +108,12 @@ public class GameManager : MonoBehaviour
         }
         if (p1nitro < 100f)
         {
-            p1nitro += 0.5f;
-            boost1.value = p1nitro;
+			if (pause.ifpause) {
+				p1nitro += 0;
+			} else {
+				p1nitro += 0.5f;
+				boost1.value = p1nitro;
+			}
         }
     }
 
@@ -115,7 +132,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Vector3 temp = p2.transform.eulerAngles;
-                temp.x += 45f * Time.deltaTime;
+                temp.x += 90f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
                 Debug.Log("anjing");
             }
@@ -136,12 +153,12 @@ public class GameManager : MonoBehaviour
         {
             if (gc2.gc)
             {
-                rig2.velocity *= 0.9f;
+                rig2.velocity *= 0.75f;
             }
             else
             {
                 Vector3 temp = p2.transform.eulerAngles;
-                temp.x -= 45f * Time.deltaTime;
+                temp.x -= 90f * Time.deltaTime;
                 p2.transform.eulerAngles = temp;
                 Debug.Log("kucing");
             }
@@ -166,8 +183,12 @@ public class GameManager : MonoBehaviour
         }
         if (p2nitro < 100f)
         {
-            p2nitro += 0.5f;
-            boost2.value = p2nitro;
+			if (pause.ifpause) {
+				p2nitro += 0;
+			} else {
+				p2nitro += 0.5f;
+				boost2.value = p2nitro;
+			}
         }
 
     }

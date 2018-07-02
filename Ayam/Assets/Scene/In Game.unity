@@ -492,6 +492,24 @@ Rigidbody:
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 96890a58aba84da4fa807125a8fbc2d5, type: 3}
   m_PrefabInternal: {fileID: 184460922}
+--- !u!1 &190600236 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 96890a58aba84da4fa807125a8fbc2d5, type: 3}
+  m_PrefabInternal: {fileID: 184460922}
+--- !u!64 &190600240
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190600236}
+  m_Material: {fileID: 13400000, guid: c914d3d9a1f524647b4ca9e8939d29e9, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 96890a58aba84da4fa807125a8fbc2d5, type: 3}
 --- !u!1 &191786859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2678,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3352674848f05c468767e374bee5800, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1156095126 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 240aea6a694778040a937904a5bfb5bf, type: 3}
+  m_PrefabInternal: {fileID: 338759076}
+--- !u!64 &1156095130
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156095126}
+  m_Material: {fileID: 13400000, guid: c914d3d9a1f524647b4ca9e8939d29e9, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 240aea6a694778040a937904a5bfb5bf, type: 3}
 --- !u!1 &1183818398
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,6 +7869,7 @@ MonoBehaviour:
   p1: {fileID: 335073930}
   p2: {fileID: 321059699}
   PowerUp: {fileID: 0}
+  pause: {fileID: 0}
   boost1: {fileID: 1668517841}
   boost2: {fileID: 1412716639}
   count1: {fileID: 0}
@@ -7886,6 +7923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1650296226}
+  ifpause: 0
 --- !u!1 &1703819574
 GameObject:
   m_ObjectHideFlags: 0
@@ -8237,6 +8275,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ef0d1edf235d094d8e625bcfd442602, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1815407767 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100104, guid: bdf30caecf073c34cae84a5dba4cbc0e, type: 3}
+  m_PrefabInternal: {fileID: 2024016177}
+--- !u!64 &1815407771
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1815407767}
+  m_Material: {fileID: 13400000, guid: c914d3d9a1f524647b4ca9e8939d29e9, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300094, guid: bdf30caecf073c34cae84a5dba4cbc0e, type: 3}
 --- !u!1 &1831663533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8419,6 +8475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1650296226}
+  ifpause: 0
 --- !u!114 &1856909759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8433,6 +8490,7 @@ MonoBehaviour:
   p1: {fileID: 335073930}
   p2: {fileID: 321059699}
   PowerUp: {fileID: 1723106039}
+  pause: {fileID: 1856909758}
   boost1: {fileID: 1668517841}
   boost2: {fileID: 1412716639}
   count1: {fileID: 1138616566}
