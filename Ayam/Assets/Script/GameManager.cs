@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject p1, p2;
+    public PowerUp PowerUp;
 
     public Slider boost1, boost2;
     public RawImage count1, count2;
     public Texture texture1, texture2, texture3, texture4, win, lose;
+    public Text textP1, textP2;
 
     public GroundCheck gc1, gc2;
 
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {    
+    {
         p1nitro = p2nitro = 100f;
         boost1.value = p1nitro;
         boost2.value = p2nitro;
@@ -40,11 +42,11 @@ public class GameManager : MonoBehaviour
             rig2.constraints = RigidbodyConstraints.None;
             rig1.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             rig2.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            if(p1Move) Movementp1();
-            if(p2Move) Movementp2();
-            if (boost1.value == 0f) boost1.gameObject.SetActive(false);
-            if (boost2.value == 0f) boost2.gameObject.SetActive(false);
-            boost1.gameObject.SetActive(true);
+            if (p1Move) Movementp1();
+            if (p2Move) Movementp2();
+            //if (boost1.value == 0f) boost1.gameObject.SetActive(false);
+            //if (boost2.value == 0f) boost2.gameObject.SetActive(false);
+            //pUp();
         }
     }
 
@@ -91,13 +93,13 @@ public class GameManager : MonoBehaviour
             p1nitro -= 1.5f;
             boost1.value = p1nitro;
         }
-        //if (p1nitro < 100f)
-        //{
-        //    p1nitro += 0.5f;
-        //    boost1.value = p1nitro;
-        //}
-        //}
+        if (p1nitro < 100f)
+        {
+            p1nitro += 0.5f;
+            boost1.value = p1nitro;
+        }
     }
+
 
     void Movementp2()
     {
@@ -162,15 +164,29 @@ public class GameManager : MonoBehaviour
             p2nitro -= 1.5f;
             boost2.value = p2nitro;
         }
-        //if (p2nitro < 100f)
-        //{
-        //    p2nitro += 0.5f;
-        //    boost2.value = p2nitro;
-        //}
-        
+        if (p2nitro < 100f)
+        {
+            p2nitro += 0.5f;
+            boost2.value = p2nitro;
+        }
+
     }
 
-
+    void pUp()
+    {
+        if (PowerUp.pUpP1 == true) { boost1.gameObject.SetActive(true); }
+        if (PowerUp.pUpP2 == true) { boost2.gameObject.SetActive(true); }
+        if (boost1.value == 0)
+        {
+            boost1.gameObject.SetActive(false);
+            PowerUp.pUpP1 = false;
+        }
+        if (boost2.value == 0)
+        {
+            boost2.gameObject.SetActive(false);
+            PowerUp.pUpP2 = false;
+        }
+    }
 
     private IEnumerator countdown()
     {
@@ -180,7 +196,7 @@ public class GameManager : MonoBehaviour
         rig2.constraints = RigidbodyConstraints.FreezeAll;
         while (cdown > 0)
         {
-            if(cdown == 3)
+            if (cdown == 3)
             {
                 count1.texture = texture1;
                 count2.texture = texture1;
@@ -190,7 +206,7 @@ public class GameManager : MonoBehaviour
                 count1.texture = texture2;
                 count2.texture = texture2;
             }
-            else if(cdown == 1)
+            else if (cdown == 1)
             {
                 count1.texture = texture3;
                 count2.texture = texture3;

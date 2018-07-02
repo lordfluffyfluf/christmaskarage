@@ -6,6 +6,7 @@ public class FinishChecker : MonoBehaviour
 {
 
     public GameManager GameManager;
+    //public Camera camera;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -15,10 +16,12 @@ public class FinishChecker : MonoBehaviour
             if (!GameManager.isWin)
             {
                 GameManager.isWin = true;
-                GameManager.count1.texture = GameManager.win;
-                //GameManager.count1.text = "You Win!!!";
-            }
-            else GameManager.count1.texture = GameManager.lose; //GameManager.count1.text = "You Lose!!!";
+                //GameManager.count1.texture = GameManager.win;
+                GameManager.textP1.text = "You Win!!!";
+                //camera.rect = new Rect(0, 0, 0.5f, 1);
+                //camera.gameObject.SetActive(true);
+             }
+            else /*GameManager.count1.texture = GameManager.lose;*/GameManager.textP1.text = "You Lose!!!";
         }
         else if (col.tag == "Player" && col.name == "bluesled")
         {
@@ -26,10 +29,10 @@ public class FinishChecker : MonoBehaviour
             if (!GameManager.isWin)
             {
                 GameManager.isWin = true;
-                GameManager.count2.texture = GameManager.win;
-                //   GameManager.count2.text = "You Win!!!";
+                //GameManager.count2.texture = GameManager.win;
+                GameManager.textP2.text = "You Win!!!";
             }
-            else GameManager.count2.texture = GameManager.lose; //GameManager.count2.text = "You Lose!!!";
+            else /*GameManager.count2.texture = GameManager.lose;*/ GameManager.textP2.text = "You Lose!!!";
         }
     }
 }

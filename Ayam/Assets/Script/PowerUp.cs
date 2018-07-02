@@ -7,8 +7,8 @@ public class PowerUp : MonoBehaviour
 
     public GameManager GameManager;
 
-    private bool p1BoostActive;
-    private bool p2BoostActive;
+    private bool p1BoostActive, p2BoostActive;
+    public bool pUpP1 = false, pUpP2 = false;
     // Use this for initialization
     void Start()
     {
@@ -26,13 +26,13 @@ public class PowerUp : MonoBehaviour
     {
         if (col.tag == "Player" && col.name == "redsled")
         {
-            if (p1BoostActive == false) GameManager.boost1.gameObject.SetActive(true);
+            if (p1BoostActive == false) pUpP1 = true;
             GameManager.boost1.value = 100f;
             p1BoostActive = true;
         }
         else if (col.tag == "Player" && col.name == "bluesled")
         {
-            if (p2BoostActive == false) GameManager.boost1.gameObject.SetActive(true);
+            if (p2BoostActive == false) pUpP2 = true;/* GameManager.boost1.gameObject.SetActive(true);*/
             GameManager.boost2.value = 100f;
             p2BoostActive = true;
         }
