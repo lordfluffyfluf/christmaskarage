@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void Movementp2()
     {
         //if (p2_Win == false)
@@ -213,36 +212,20 @@ public class GameManager : MonoBehaviour
     {
         float cdown = 3f;
         float tine = 1.25f;
-        rig1.constraints = RigidbodyConstraints.FreezeAll;
-        rig2.constraints = RigidbodyConstraints.FreezeAll;
+        rig1.constraints = rig2.constraints = RigidbodyConstraints.FreezeAll;
         while (cdown > 0)
         {
-            if (cdown == 3)
-            {
-                count1.texture = texture1;
-                count2.texture = texture1;
-            }
-            else if (cdown == 2)
-            {
-                count1.texture = texture2;
-                count2.texture = texture2;
-            }
-            else if (cdown == 1)
-            {
-                count1.texture = texture3;
-                count2.texture = texture3;
-            }
+            if (cdown == 3) count1.texture = count2.texture = texture1;
+            else if (cdown == 2) count1.texture = count2.texture = texture2;
+            else if (cdown == 1) count1.texture = count2.texture = texture3;
             cdown--;
             yield return new WaitForSeconds(tine);
         }
         isStart = true;
-        count1.texture = texture4;
-        count2.texture = texture4;
+        count1.texture = count2.texture = texture4;
         yield return new WaitForSeconds(1.5f);
-        count1.texture = null;
-        count1.color = Color.clear;
-        count2.texture = null;
-        count2.color = Color.clear;
+        count1.texture = count2.texture = null;
+        count1.color = count2.color = Color.clear;
     }
 
 }
