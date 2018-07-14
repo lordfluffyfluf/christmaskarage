@@ -6,7 +6,8 @@ public class FinishChecker : MonoBehaviour
 {
 
     public GameManager GameManager;
-    //public Camera camera;
+    public Camera camera;
+    public Canvas p1, p2;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -18,8 +19,9 @@ public class FinishChecker : MonoBehaviour
             {
                 GameManager.isWin = true;
                 GameManager.count1.texture = GameManager.win;
-                //camera.rect = new Rect(0, 0, 0.5f, 1);
-                //GetComponent<Camera>().gameObject.SetActive(true);
+                camera.rect = new Rect(0, 0, 0.5f, 1);
+                p1.worldCamera = camera;
+                camera.gameObject.SetActive(true);
             }
             else GameManager.count1.texture = GameManager.lose;
         }
@@ -31,6 +33,9 @@ public class FinishChecker : MonoBehaviour
             {
                 GameManager.isWin = true;
                 GameManager.count2.texture = GameManager.win;
+                camera.rect = new Rect(0.5f, 0, 0.5f, 1);
+                p2.worldCamera = camera;
+                camera.gameObject.SetActive(true);
             }
             else GameManager.count2.texture = GameManager.lose;
         }
